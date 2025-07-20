@@ -1,0 +1,29 @@
+[project]
+name = "api-workshop"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Leonardo Costa Santos",email = "leonardo.costa.santos.si@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "fastapi (>=0.116.1,<0.117.0)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "pytest (>=8.4.1,<9.0.0)",
+    "httpx (>=0.28.1,<0.29.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+
+run = "uvicorn main:app --reload"
+test = "pytest -v"
+kill = "kill -9 $(lsof -t -i:8000)"
+[tool.poetry.group.dev.dependencies]
+taskipy = "^1.14.1"
+
