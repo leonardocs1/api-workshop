@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from main import app
+from app.main import app
 
 client = TestClient(app)
 
@@ -28,5 +28,5 @@ def test_obter_produto_existente():
         "id": 1,
         "titulo": "Cadeira Gamer",
         "descricao": "Cadeira confortável para fazer live",
-        "preço": 5.0,
+        "preco": 5.0,
     }
