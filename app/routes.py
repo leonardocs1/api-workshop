@@ -13,7 +13,7 @@ def ola_mundo():
     return {"message": "Olá, mundo!"}
 
 @router.get("/produtos", response_model=list[ProdutoSchema])
-def listar_produtos(db: SessionLocal = Depends(get_db)):
+def listar_produtos(db: Session = Depends(get_db)):
     return db.query(Produto).all()
 
 @router.get("/produtos/{produto_id}", response_model=ProdutoSchema)
